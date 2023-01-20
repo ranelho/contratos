@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: /contratos/api
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/contratos?useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: 852456
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+springdoc:
+  swagger-ui:
+    path: /public/swagger
+
+
