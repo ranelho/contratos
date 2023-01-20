@@ -18,10 +18,10 @@ public class Testemunhas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTestemunhas;
     private String nomeTestemunha1;
- //   @CPF(message = "cpf inválido")
+    @CPF(message = "cpf inválido")
     private String cpfTestemunha1;
     private String nomeTestemunha2;
-  //  @CPF(message = "cpf inválido")
+    @CPF(message = "cpf inválido")
     private String cpfTestemunha2;
     @OneToOne
     @JsonIgnore

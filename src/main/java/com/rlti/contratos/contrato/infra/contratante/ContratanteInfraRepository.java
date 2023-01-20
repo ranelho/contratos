@@ -1,7 +1,6 @@
 package com.rlti.contratos.contrato.infra.contratante;
 
 import com.rlti.contratos.contrato.application.repository.contratante.ContratanteRepository;
-import com.rlti.contratos.contrato.domain.Contratada;
 import com.rlti.contratos.contrato.domain.Contratante;
 import com.rlti.contratos.handler.APIException;
 import lombok.RequiredArgsConstructor;
@@ -34,8 +33,6 @@ public class ContratanteInfraRepository implements ContratanteRepository {
     public Optional<Contratante> findByCnpj(String cnpjContratante) {
         log.info("[inicia] ContratadaInfraRepository - findByCnpj");
         Optional<Contratante> optionalContratante = contratanteSpringDataJPARepository.findByCnpjContratante(cnpjContratante);
-        /*Contratante contratada = optionalContratante
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Contratado não encontrado!"));*/
         log.info("[inicia] ContratadaInfraRepository - findByCnpj");
         return  optionalContratante;
     }

@@ -1,9 +1,7 @@
 package com.rlti.contratos.contrato.application.service.contrato;
 
-import com.rlti.contratos.contrato.application.api.contratada.ContratadaRequest;
 import com.rlti.contratos.contrato.application.api.contrato.ContratoRequest;
 import com.rlti.contratos.contrato.application.api.contrato.ContratoRequestSemCadastro;
-import com.rlti.contratos.contrato.application.api.testemunha.TestemunhasRequest;
 import com.rlti.contratos.contrato.application.repository.contratada.ContratadaRepository;
 import com.rlti.contratos.contrato.application.repository.contratante.ContratanteRepository;
 import com.rlti.contratos.contrato.application.repository.contrato.ContratoRepository;
@@ -11,7 +9,6 @@ import com.rlti.contratos.contrato.application.repository.testemunha.TestemunhaR
 import com.rlti.contratos.contrato.domain.Contratada;
 import com.rlti.contratos.contrato.domain.Contratante;
 import com.rlti.contratos.contrato.domain.Contrato;
-import com.rlti.contratos.contrato.domain.Testemunhas;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;

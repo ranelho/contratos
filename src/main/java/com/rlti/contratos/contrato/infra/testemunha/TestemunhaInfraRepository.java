@@ -1,7 +1,6 @@
 package com.rlti.contratos.contrato.infra.testemunha;
 
 import com.rlti.contratos.contrato.application.repository.testemunha.TestemunhaRepository;
-import com.rlti.contratos.contrato.domain.Contrato;
 import com.rlti.contratos.contrato.domain.Testemunhas;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
