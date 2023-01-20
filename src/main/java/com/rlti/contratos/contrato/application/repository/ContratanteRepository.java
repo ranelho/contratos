@@ -1,4 +1,4 @@
-package com.rlti.contratos.contrato.application.repository.contratante;
+package com.rlti.contratos.contrato.application.repository;
 
 import com.rlti.contratos.contrato.domain.Contratante;
 

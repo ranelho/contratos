@@ -12,15 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ContratoRestController implements ContratoApi {
     private final ContratoService contratoService;
 
-
-    @Override
-    public ContratoResponse postContrato(ContratoRequest contratoRequest) {
-        log.info("[inicia] ContratoController - postContrato");
-        Contrato contrato = contratoService.postContrato(contratoRequest);
-        log.info("[finaliza] ContratoController - postContrato");
-        return new ContratoResponse(contrato);
-    }
-
     @Override
     public ContratoResponse postContratoSemCadastro(ContratoRequestSemCadastro contratoRequestSemCadastro) {
         log.info("[inicia] ContratoController - postContrato");

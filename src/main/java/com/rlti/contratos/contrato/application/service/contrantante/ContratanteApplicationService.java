@@ -2,7 +2,7 @@ package com.rlti.contratos.contrato.application.service.contrantante;
 
 import com.rlti.contratos.contrato.application.api.contratante.ContratanteRequest;
 import com.rlti.contratos.contrato.application.api.contratante.ContratanteResponse;
-import com.rlti.contratos.contrato.application.repository.contratante.ContratanteRepository;
+import com.rlti.contratos.contrato.application.repository.ContratanteRepository;
 import com.rlti.contratos.contrato.domain.Contratante;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

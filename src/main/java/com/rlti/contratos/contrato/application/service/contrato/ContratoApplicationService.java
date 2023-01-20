@@ -1,11 +1,10 @@
 package com.rlti.contratos.contrato.application.service.contrato;
 
-import com.rlti.contratos.contrato.application.api.contrato.ContratoRequest;
 import com.rlti.contratos.contrato.application.api.contrato.ContratoRequestSemCadastro;
-import com.rlti.contratos.contrato.application.repository.contratada.ContratadaRepository;
-import com.rlti.contratos.contrato.application.repository.contratante.ContratanteRepository;
-import com.rlti.contratos.contrato.application.repository.contrato.ContratoRepository;
-import com.rlti.contratos.contrato.application.repository.testemunha.TestemunhaRepository;
+import com.rlti.contratos.contrato.application.repository.ContratadaRepository;
+import com.rlti.contratos.contrato.application.repository.ContratanteRepository;
+import com.rlti.contratos.contrato.application.repository.ContratoRepository;
+import com.rlti.contratos.contrato.application.repository.TestemunhaRepository;
 import com.rlti.contratos.contrato.domain.Contratada;
 import com.rlti.contratos.contrato.domain.Contratante;
 import com.rlti.contratos.contrato.domain.Contrato;
@@ -25,22 +24,6 @@ public class ContratoApplicationService implements ContratoService {
     private final TestemunhaRepository testemunhaRepository;
 
     @Override
-    public Contrato postContrato(ContratoRequest contratoRequest) {
-        log.info("[inicia] ContratoApplicationService - postContrato");
-        Contrato contrato = contratoRepository.cria(new Contrato(contratoRequest));
-        log.info("[finaliza] ContratoApplicationService - postContrato");
-        return contrato;
-    }
-
-    @Override
-    public Contrato getContratoById(Long idContrato) {
-        log.info("[inicia] ContratoApplicationService - getContratoById");
-        Contrato optionalContrato = contratoRepository.getContratoById(idContrato);
-        log.info("[finaliza] ContratoApplicationService - getContratoById");
-        return optionalContrato;
-    }
-
-    @Override
     public Contrato postContratoSemCadastro(ContratoRequestSemCadastro contratoRequestSemCadastro) {
         log.info("[inicia] ContratoApplicationService - postContrato");
         Optional<Contratada> optionalContratada = contratadaRepository.findByCnpj(contratoRequestSemCadastro.getContratada().getCnpjContratada());
@@ -56,5 +39,13 @@ public class ContratoApplicationService implements ContratoService {
         contratoRepository.cria(contrato);
         log.info("[finaliza] ContratoApplicationService - postContrato");
         return contrato;
+    }
+
+    @Override
+    public Contrato getContratoById(Long idContrato) {
+        log.info("[inicia] ContratoApplicationService - getContratoById");
+        Contrato optionalContrato = contratoRepository.getContratoById(idContrato);
+        log.info("[finaliza] ContratoApplicationService - getContratoById");
+        return optionalContrato;
     }
 }

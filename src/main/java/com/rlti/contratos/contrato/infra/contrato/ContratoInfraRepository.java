@@ -1,6 +1,6 @@
 package com.rlti.contratos.contrato.infra.contrato;
 
-import com.rlti.contratos.contrato.application.repository.contrato.ContratoRepository;
+import com.rlti.contratos.contrato.application.repository.ContratoRepository;
 import com.rlti.contratos.contrato.domain.Contrato;
 import com.rlti.contratos.handler.APIException;
 import lombok.RequiredArgsConstructor;

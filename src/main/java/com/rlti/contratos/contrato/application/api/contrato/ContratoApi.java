@@ -9,10 +9,6 @@ import javax.validation.Valid;
 @RequestMapping("/v1/contrato")
 public interface ContratoApi {
 
-    @PostMapping
-    @ResponseStatus(code = HttpStatus.CREATED)
-    ContratoResponse postContrato(@Valid @RequestBody ContratoRequest contratoRequest);
-
     @PostMapping(value = "/sem-cadastro")
     @ResponseStatus(code = HttpStatus.CREATED)
     ContratoResponse postContratoSemCadastro(@Valid @RequestBody ContratoRequestSemCadastro contratoRequestSemCadastro);

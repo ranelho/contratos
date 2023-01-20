@@ -5,7 +5,6 @@ import com.rlti.contratos.contrato.application.api.contrato.ContratoRequestSemCa
 import com.rlti.contratos.contrato.domain.Contrato;
 
 public interface ContratoService {
-    Contrato postContrato(ContratoRequest contratoRequest);
-    Contrato getContratoById(Long idContrato);
     Contrato postContratoSemCadastro(ContratoRequestSemCadastro contratoRequestSemCadastro);
+    Contrato getContratoById(Long idContrato);
 }

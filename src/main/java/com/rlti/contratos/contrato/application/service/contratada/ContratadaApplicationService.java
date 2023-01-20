@@ -2,7 +2,7 @@ package com.rlti.contratos.contrato.application.service.contratada;
 
 import com.rlti.contratos.contrato.application.api.contratada.ContratadaIdResponse;
 import com.rlti.contratos.contrato.application.api.contratada.ContratadaRequest;
-import com.rlti.contratos.contrato.application.repository.contratada.ContratadaRepository;
+import com.rlti.contratos.contrato.application.repository.ContratadaRepository;
 import com.rlti.contratos.contrato.domain.Contratada;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
