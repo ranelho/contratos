@@ -1,0 +1,42 @@
+package com.rlti.contratos.contrato.infra.contratada;
+
+import com.rlti.contratos.contrato.application.repository.contratada.ContratadaRepository;
+import com.rlti.contratos.contrato.domain.Contratada;
+import com.rlti.contratos.handler.APIException;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@RequiredArgsConstructor
+@Repository
+@Log4j2
+public class ContratadaInfraRepository implements ContratadaRepository {
+
+    private final ContratadaSpringDataJPARepository contratadaSpringDataJPARepository;
+
+    @Override
+    public Contratada salva(Contratada contratada) {
+        log.info("[inicia] ContratadaInfraRepository - salva");
+        try {
+            contratadaSpringDataJPARepository.save(contratada);
+        }catch (DataIntegrityViolationException e){
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Contratada já cadastrada", e);
+        }
+        log.info("[finaliza] ContratadaInfraRepository - salva");
+        return contratada;
+    }
+
+    @Override
+    public Optional<Contratada> findByCnpj(String cnpjContratada) {
+        log.info("[inicia] ContratadaInfraRepository - findByCnpj");
+        Optional<Contratada>  optionalContratada = contratadaSpringDataJPARepository.findByCnpjContratada(cnpjContratada);
+        /*Contratada contratada = optionalContratada
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Contratado não encontrado!"));*/
+        log.info("[inicia] ContratadaInfraRepository - findByCnpj");
+        return  optionalContratada;
+    }
+}
