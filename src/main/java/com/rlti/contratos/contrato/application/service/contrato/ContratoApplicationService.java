@@ -29,22 +29,22 @@ public class ContratoApplicationService implements ContratoService {
     public Contrato postContratoSemCadastro(ContratoRequest contratoRequest) {
         log.info("[inicia] ContratoApplicationService - postContrato");
         Optional<Contratada> optionalContratada = contratadaRepository.findByCnpj(contratoRequest.getContratada().getCnpjContratada());
-        Optional<Contratante> optionalContratante = contratanteRepository.findByCnpj(contratoRequest.getContratante().getCnpjContratante());
-
         if(optionalContratada.isPresent()){
             contratada = optionalContratada.get();
         }else{
             contratada = new Contratada(contratoRequest.getContratada());
             contratadaRepository.salva(contratada);
         }
+
+        Optional<Contratante> optionalContratante = contratanteRepository.findByCnpj(contratoRequest.getContratante().getCnpjContratante());
         if(optionalContratante.isPresent()){
             contratante = optionalContratante.get();
         }else{
             contratante = new Contratante(contratoRequest.getContratante());
             contratanteRepository.salva(contratante);
         }
-        Contrato contrato = new Contrato(contratoRequest, contratada, contratante);
 
+        Contrato contrato = new Contrato(contratoRequest, contratada, contratante);
         testemunhaRepository.salva(contrato.getTestemunhas());
         contratoRepository.cria(contrato);
         log.info("[finaliza] ContratoApplicationService - postContrato");
