@@ -33,6 +33,5 @@ public class Testemunhas {
         this.cpfTestemunha1 = testemunhasRequest.getCpfTestemunha1();
         this.nomeTestemunha2 = testemunhasRequest.getNomeTestemunha2();
         this.cpfTestemunha2 = testemunhasRequest.getCpfTestemunha2();
-       // this.contrato = contrato;
     }
 }

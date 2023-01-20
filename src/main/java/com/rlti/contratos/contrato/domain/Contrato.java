@@ -1,7 +1,6 @@
 package com.rlti.contratos.contrato.domain;
 
 import com.rlti.contratos.contrato.application.api.contrato.ContratoRequest;
-import com.rlti.contratos.contrato.application.api.contrato.ContratoRequestSemCadastro;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,24 +29,10 @@ public class Contrato {
     @JoinColumn(name = "testemunhas_id")
     private Testemunhas testemunhas;
 
-    public Contrato(ContratoRequest contratoRequest) {
-        this.contratante = contratoRequest.getContratante();
-        this.contratada = contratoRequest.getContratada();
+    public Contrato(ContratoRequest contratoRequest, Contratada contratada , Contratante contratante) {
+        this.contratante = contratante;
+        this.contratada = contratada;
         this.dataInicioContrato = contratoRequest.getDataInicioContrato();
-        this.testemunhas = contratoRequest.getTestemunhas();
-    }
-    public Contrato(ContratoRequestSemCadastro contratoRequestSemCadastro, Optional<Contratada> contratada , Optional<Contratante> contratante) {
-        if (contratante.isPresent()) {
-            this.contratante = contratante.get();
-        } else {
-            this.contratante = new Contratante(contratoRequestSemCadastro.getContratante());
-        }
-        if (contratada.isPresent()) {
-            this.contratada = contratada.get();
-        } else {
-            this.contratada = new Contratada(contratoRequestSemCadastro.getContratada());
-        }
-        this.dataInicioContrato = contratoRequestSemCadastro.getDataInicioContrato();
-        this.testemunhas = new Testemunhas(contratoRequestSemCadastro.getTestemunhas());
+        this.testemunhas = new Testemunhas(contratoRequest.getTestemunhas());
     }
 }
