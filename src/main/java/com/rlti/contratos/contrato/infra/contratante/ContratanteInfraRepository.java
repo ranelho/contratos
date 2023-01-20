@@ -31,9 +31,9 @@ public class ContratanteInfraRepository implements ContratanteRepository {
 
     @Override
     public Optional<Contratante> findByCnpj(String cnpjContratante) {
-        log.info("[inicia] ContratadaInfraRepository - findByCnpj");
+        log.info("[inicia] ContratanteInfraRepository - findByCnpj");
         Optional<Contratante> optionalContratante = contratanteSpringDataJPARepository.findByCnpjContratante(cnpjContratante);
-        log.info("[inicia] ContratadaInfraRepository - findByCnpj");
+        log.info("[finaliza] ContratanteInfraRepository - findByCnpj");
         return  optionalContratante;
     }
 }

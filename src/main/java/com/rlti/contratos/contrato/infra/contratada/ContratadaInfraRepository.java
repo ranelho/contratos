@@ -34,7 +34,7 @@ public class ContratadaInfraRepository implements ContratadaRepository {
     public Optional<Contratada> findByCnpj(String cnpjContratada) {
         log.info("[inicia] ContratadaInfraRepository - findByCnpj");
         Optional<Contratada>  optionalContratada = contratadaSpringDataJPARepository.findByCnpjContratada(cnpjContratada);
-        log.info("[inicia] ContratadaInfraRepository - findByCnpj");
+        log.info("[finaliza] ContratadaInfraRepository - findByCnpj");
         return  optionalContratada;
     }
 }

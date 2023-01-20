@@ -22,29 +22,29 @@ public class ContratoApplicationService implements ContratoService {
     private final ContratadaRepository contratadaRepository;
     private final ContratanteRepository contratanteRepository;
     private final TestemunhaRepository testemunhaRepository;
+    private Contratada contratada;
+    private Contratante contratante;
 
     @Override
     public Contrato postContratoSemCadastro(ContratoRequest contratoRequest) {
         log.info("[inicia] ContratoApplicationService - postContrato");
         Optional<Contratada> optionalContratada = contratadaRepository.findByCnpj(contratoRequest.getContratada().getCnpjContratada());
         Optional<Contratante> optionalContratante = contratanteRepository.findByCnpj(contratoRequest.getContratante().getCnpjContratante());
-        final Contratada[] contratada = new Contratada[1];
-        final Contratante[] contratante = new Contratante[1];
-        optionalContratada.ifPresentOrElse(
-                (value) -> { contratada[0] = optionalContratada.get();        },
-                ()     -> {
-                    contratada[0] = new Contratada(contratoRequest.getContratada());
-                    contratadaRepository.salva(contratada[0]);
-                }
-        );
-        optionalContratante.ifPresentOrElse(
-                (value) -> { contratante[0] = optionalContratante.get();        },
-                ()     -> {
-                    contratante[0] = new Contratante(contratoRequest.getContratante());
-                    contratanteRepository.salva(contratante[0]);
-                }
-        );
-        Contrato contrato = new Contrato(contratoRequest, contratada[0], contratante[0]);
+
+        if(optionalContratada.isPresent()){
+            contratada = optionalContratada.get();
+        }else{
+            contratada = new Contratada(contratoRequest.getContratada());
+            contratadaRepository.salva(contratada);
+        }
+        if(optionalContratante.isPresent()){
+            contratante = optionalContratante.get();
+        }else{
+            contratante = new Contratante(contratoRequest.getContratante());
+            contratanteRepository.salva(contratante);
+        }
+        Contrato contrato = new Contrato(contratoRequest, contratada, contratante);
+
         testemunhaRepository.salva(contrato.getTestemunhas());
         contratoRepository.cria(contrato);
         log.info("[finaliza] ContratoApplicationService - postContrato");
