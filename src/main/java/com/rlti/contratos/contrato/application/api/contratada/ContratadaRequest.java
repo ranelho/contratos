@@ -5,8 +5,10 @@ import lombok.Value;
 @Value
 public class ContratadaRequest {
     private String razaoSocialContratada;
+    private String nomeFantasiaContratada;
     private String cnpjContratada;
     private String enderecoContratada;
     private String cidadeContratada;
     private String cepContratada;
+    private String estadoContratada;
 }
