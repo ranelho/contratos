@@ -9,8 +9,8 @@ import java.time.LocalDate;
 
 @Data
 public class ContratoRequest {
-    private ContratanteRequest contratante;
-    private ContratadaRequest contratada;
+    private ContratanteRequest contratanteRequest;
+    private ContratadaRequest contratadaRequest;
     private LocalDate dataInicioContrato;
     private TestemunhasRequest testemunhas;
 }

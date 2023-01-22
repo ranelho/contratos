@@ -2,6 +2,7 @@ package com.rlti.contratos.contrato.application.api.contrato;
 
 import com.rlti.contratos.contrato.application.service.contrato.ContratoService;
 import com.rlti.contratos.contrato.domain.Contrato;
+import com.rlti.contratos.contrato.domain.ReplaceTextInDocument;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,16 +16,18 @@ public class ContratoRestController implements ContratoApi {
     @Override
     public ContratoResponse postContratoSemCadastro(ContratoRequest contratoRequest) {
         log.info("[inicia] ContratoController - postContrato");
-        Contrato contrato = contratoService.postContratoSemCadastro(contratoRequest);
+        ContratoResponse contratoResponse = contratoService.postContratoSemCadastro(contratoRequest);
+       // ReplaceTextInDocument.upadate(contratoResponse);
         log.info("[finaliza] ContratoController - postContrato");
-        return new ContratoResponse(contrato);
+        return contratoResponse;
     }
 
     @Override
     public ContratoResponse getContratoById(Long idContrato) {
         log.info("[inicia] ContratoController - getContratoById");
-        Contrato contrato = contratoService.getContratoById(idContrato);
+        ContratoResponse contratoResponse = contratoService.getContratoById(idContrato);
+        ReplaceTextInDocument.upadate(contratoResponse);
         log.info("[finaliza] ContratoController - getContratoById");
-        return new ContratoResponse(contrato);
+        return contratoResponse;
     }
 }

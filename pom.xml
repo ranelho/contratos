@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-doc.version>1.6.14</spring-doc.version>
+		<poi.version>5.2.3</poi.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -51,8 +52,22 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>${spring-doc.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>e-iceblue</groupId>
+			<artifactId>spire.doc.free</artifactId>
+			<version>5.2.0</version>
+		</dependency>
+
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>com.e-iceblue</id>
+			<name>e-iceblue</name>
+			<url>https://repo.e-iceblue.com/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>
