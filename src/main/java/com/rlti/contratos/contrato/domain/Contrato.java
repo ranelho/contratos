@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -23,6 +24,7 @@ public class Contrato {
     @ManyToOne
     @JoinColumn(name = "contratada_id")
     private Contratada contratada;
+    @NotNull(message = "Data Inicio Contrato Obrigatória!")
     private LocalDate dataInicioContrato;
     @OneToOne
     @JoinColumn(name = "testemunhas_id")

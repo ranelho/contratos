@@ -6,6 +6,10 @@ import com.spire.doc.FileFormat;
 
 public class ReplaceTextInDocument {
 
+    /**
+     *
+     * @param contrato recebe contrato response com todos os dados necessários para validação do arquivo.
+     */
     public static void upadate(ContratoResponse contrato) {
         String arquivo = "contrato.docx";
 
@@ -37,6 +41,10 @@ public class ReplaceTextInDocument {
         document.replace("{{CPF_TESTEMUNHA2}}", contrato.getTestemunhaResponses().getCpfTestemunha2(), false, true);
 
         //Save the result document
+        /**
+         * para salvar o documento em pdf usar comando abaixo, ferramenta paga, so permite pdf em até 3 paginas
+         */
+        //document.saveToFile("NovoContrato.pdf", FileFormat.PDF);*/
         document.saveToFile("NovoContrato.docx", FileFormat.Docx);
     }
 }

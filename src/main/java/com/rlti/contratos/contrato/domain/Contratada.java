@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @AllArgsConstructor
@@ -18,14 +19,21 @@ public class Contratada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idContratada;
+    @NotNull(message = "Ração Social Obrigratória!")
     private String razaoSocialContratada;
+    @NotNull(message = "Nome Fantasia Obrigatório!")
     private String nomeFantasiaContratada;
     @CNPJ(message = "CNPJ inválido")
+    @NotNull(message = "Cnpj Obrigatório!")
     @Column(unique = true, updatable = true)
     private String cnpjContratada;
+    @NotNull(message = "Endereço Obrigatório!")
     private String enderecoContratada;
+    @NotNull(message = "Cidade Obrigatória!")
     private String cidadeContratada;
+    @NotNull(message = "Cep Obrigatório!")
     private String cepContratada;
+    @NotNull(message = "Estado Obrigatório!")
     private String estadoContratada;
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "contratada")
     @JsonIgnore
