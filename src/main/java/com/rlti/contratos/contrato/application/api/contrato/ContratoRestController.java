@@ -2,6 +2,7 @@ package com.rlti.contratos.contrato.application.api.contrato;
 
 import com.rlti.contratos.contrato.application.service.contrato.ContratoService;
 import com.rlti.contratos.contrato.domain.Contrato;
+import com.rlti.contratos.contrato.domain.PdfConvert;
 import com.rlti.contratos.contrato.domain.ReplaceTextInDocument;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -17,7 +18,7 @@ public class ContratoRestController implements ContratoApi {
     public ContratoResponse postContratoSemCadastro(ContratoRequest contratoRequest) {
         log.info("[inicia] ContratoController - postContrato");
         ContratoResponse contratoResponse = contratoService.postContratoSemCadastro(contratoRequest);
-       // ReplaceTextInDocument.upadate(contratoResponse);
+        ReplaceTextInDocument.upadate(contratoResponse);
         log.info("[finaliza] ContratoController - postContrato");
         return contratoResponse;
     }
