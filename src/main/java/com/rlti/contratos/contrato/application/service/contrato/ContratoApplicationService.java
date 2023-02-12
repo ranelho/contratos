@@ -6,6 +6,7 @@ import com.rlti.contratos.contrato.application.repository.ContratadaRepository;
 import com.rlti.contratos.contrato.application.repository.ContratanteRepository;
 import com.rlti.contratos.contrato.application.repository.ContratoRepository;
 import com.rlti.contratos.contrato.application.repository.TestemunhaRepository;
+import com.rlti.contratos.contrato.application.service.contrantante.ContratanteService;
 import com.rlti.contratos.contrato.domain.Contratada;
 import com.rlti.contratos.contrato.domain.Contratante;
 import com.rlti.contratos.contrato.domain.Contrato;
@@ -23,8 +24,9 @@ public class ContratoApplicationService implements ContratoService {
     private final ContratadaRepository contratadaRepository;
     private final ContratanteRepository contratanteRepository;
     private final TestemunhaRepository testemunhaRepository;
+    private final ContratanteService contratanteService;
     private Contratada contratada;
-    private Contratante contratante;
+  // private Contratante contratante;
 
     @Override
     public ContratoResponse postContratoSemCadastro(ContratoRequest contratoRequest) {
@@ -37,14 +39,18 @@ public class ContratoApplicationService implements ContratoService {
             contratada = new Contratada(contratoRequest.getContratadaRequest());
             contratadaRepository.salva(contratada);
         }
-        Optional<Contratante> optionalContratante = contratanteRepository.findByCnpj(contratoRequest.getContratanteRequest()
+
+        /*Optional<Contratante> optionalContratante = contratanteRepository.findByCnpj(contratoRequest.getContratanteRequest()
                 .getCnpjContratante());
         if(optionalContratante.isPresent()){
             contratante = optionalContratante.get();
         }else{
             contratante = new Contratante(contratoRequest.getContratanteRequest());
             contratanteRepository.salva(contratante);
-        }
+        }*/
+
+        Contratante contratante = contratanteService.alteraContratante(contratoRequest.getContratanteRequest());
+
         Contrato contrato = new Contrato(contratoRequest, contratada, contratante);
         testemunhaRepository.salva(contrato.getTestemunhas());
         contratoRepository.cria(contrato);

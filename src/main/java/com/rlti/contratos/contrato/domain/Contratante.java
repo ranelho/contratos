@@ -5,6 +5,7 @@ import com.rlti.contratos.contrato.application.api.contratante.ContratanteReques
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @Entity
 public class Contratante {
     @Id
@@ -25,15 +27,11 @@ public class Contratante {
     private String nomeFantasiaContratante;
     @CNPJ(message = "CNPJ inválido")
     @NotNull(message = "Cnpj Obrigatório!")
-    @Column(unique = true, updatable = true)
+    @Column(unique = true, updatable = false)
     private String cnpjContratante;
-    @NotNull(message = "Endereço Obrigatório!")
     private String enderecoContratante;
-    @NotNull(message = "Cidade Obrigatória!")
     private String cidadeContratante;
-    @NotNull(message = "Cep Obrigatório!")
     private String cepContratante;
-    @NotNull(message = "Estado Obrigatório!")
     private String estadoContratante;
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "contratante")
     @JsonIgnore
@@ -47,5 +45,14 @@ public class Contratante {
         this.cidadeContratante = contratanteRequest.getCidadeContratante();
         this.cepContratante = contratanteRequest.getCepContratante();
         this.estadoContratante = contratanteRequest.getEstadoContratante();
+    }
+
+    public void altera(ContratanteRequest request) {
+        this.razaoSocialContratante = request.getRazaoSocialContratante();
+        this.nomeFantasiaContratante = request.getNomeFantasiaContratante();
+        this.enderecoContratante = request.getEnderecoContratante();
+        this.cidadeContratante = request.getCidadeContratante();
+        this.cepContratante = request.getCepContratante();
+        this.estadoContratante = request.getEstadoContratante();
     }
 }

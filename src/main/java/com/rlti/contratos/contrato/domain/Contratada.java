@@ -25,15 +25,11 @@ public class Contratada {
     private String nomeFantasiaContratada;
     @CNPJ(message = "CNPJ inválido")
     @NotNull(message = "Cnpj Obrigatório!")
-    @Column(unique = true, updatable = true)
+    @Column(unique = true, updatable = false)
     private String cnpjContratada;
-    @NotNull(message = "Endereço Obrigatório!")
     private String enderecoContratada;
-    @NotNull(message = "Cidade Obrigatória!")
     private String cidadeContratada;
-    @NotNull(message = "Cep Obrigatório!")
     private String cepContratada;
-    @NotNull(message = "Estado Obrigatório!")
     private String estadoContratada;
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "contratada")
     @JsonIgnore

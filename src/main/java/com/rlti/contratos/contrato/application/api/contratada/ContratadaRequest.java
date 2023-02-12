@@ -12,12 +12,8 @@ public class ContratadaRequest {
     private String nomeFantasiaContratada;
     @NotNull(message = "Cnpj Obrigatório!")
     private String cnpjContratada;
-    @NotNull(message = "Endereço Obrigatório!")
     private String enderecoContratada;
-    @NotNull(message = "Cidade Obrigatória!")
     private String cidadeContratada;
-    @NotNull(message = "Cep Obrigatório!")
     private String cepContratada;
-    @NotNull(message = "Estado Obrigatório!")
     private String estadoContratada;
 }
