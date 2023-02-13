@@ -17,6 +17,6 @@ public class TestemunhaInfraRepository implements TestemunhaRepository {
         log.info("[inicia] TestemunhaInfraRepository - salva");
         testemunhaSpringDataJPARepository.save(testemunhas);
         log.info("[finaliza] TestemunhaInfraRepository - salva");
-        return null;
+        return testemunhas;
     }
 }
