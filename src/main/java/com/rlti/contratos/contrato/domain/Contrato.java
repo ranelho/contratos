@@ -30,10 +30,10 @@ public class Contrato {
     @JoinColumn(name = "testemunhas_id")
     private Testemunhas testemunhas;
 
-    public Contrato(ContratoRequest contratoRequest, Contratada contratada , Contratante contratante) {
+    public Contrato(ContratoRequest contratoRequest, Contratada contratada , Contratante contratante, Testemunhas testemunhas) {
         this.contratante = contratante;
         this.contratada = contratada;
         this.dataInicioContrato = contratoRequest.getDataInicioContrato();
-        this.testemunhas = new Testemunhas(contratoRequest.getTestemunhas());
+        this.testemunhas = testemunhas;
     }
 }

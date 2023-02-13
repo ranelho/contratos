@@ -18,7 +18,7 @@ public class ContratoInfraRepository implements ContratoRepository {
     private final ContratoSpringDataJPARepository contratoSpringaDataJPARespository;
 
     @Override
-    public Contrato cria(Contrato contrato) {
+    public Contrato salva(Contrato contrato) {
         log.info("[inicia] ContratoInfraRepository - cria");
         contratoSpringaDataJPARespository.save(contrato);
         log.info("[finaliza] ContratoInfraRepository - cria");
