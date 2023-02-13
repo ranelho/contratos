@@ -1,6 +1,7 @@
 package com.rlti.contratos.contrato.application.api.testemunha;
 
 import com.rlti.contratos.contrato.application.service.testemunhas.TestemunhaService;
+import com.rlti.contratos.contrato.domain.Testemunha;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +15,8 @@ public class TestemunhaRestController implements TestemunhaApi {
     @Override
     public TestemunhaResponse postTestemunhas(TestemunhaRequest testemunhaRequest) {
         log.info("[inicia] EquipamentoRestController - postEquipamento");
-        TestemunhaResponse response = testemunhaService.criaTestemunhas(testemunhaRequest);
+        Testemunha response = testemunhaService.criaTestemunhas(testemunhaRequest);
         log.info("[finaliza] EquipamentoRestController - postEquipamento");
-        return response;
+        return new TestemunhaResponse(response);
     }
 }

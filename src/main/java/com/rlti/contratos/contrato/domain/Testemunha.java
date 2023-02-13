@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,13 +22,20 @@ public class Testemunha {
     @CPF(message = "cpf inválido")
     private String cpf;
 
-    @ManyToMany(mappedBy="testemunhas", cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "contrato_contrato_id")
     @JsonIgnore
-    @JoinColumn(name = "contrato_id")
     private Contrato contrato;
 
     public Testemunha(TestemunhaRequest testemunhaRequest) {
         this.nome = testemunhaRequest.getNome();
         this.cpf = testemunhaRequest.getCpf();
+    }
+
+    public Testemunha(List<TestemunhaRequest> testemunhaRequestList) {
+        for (TestemunhaRequest testemunhaRequest : testemunhaRequestList) {
+            this.nome = testemunhaRequest.getNome();
+            this.cpf = testemunhaRequest.getCpf();
+        }
     }
 }

@@ -3,17 +3,23 @@ package com.rlti.contratos.contrato.application.api.testemunha;
 import com.rlti.contratos.contrato.domain.Testemunha;
 import lombok.Value;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Value
 public class TestemunhaResponse {
-    private String nomeTestemunha1;
-    private String cpfTestemunha1;
-    private String nomeTestemunha2;
-    private String cpfTestemunha2;
+    private String nome;
+    private String cpf;
+
 
     public TestemunhaResponse(Testemunha testemunhas) {
-        this.nomeTestemunha1 = testemunhas.getNomeTestemunha1();
-        this.cpfTestemunha1 = testemunhas.getCpfTestemunha1();
-        this.nomeTestemunha2 = testemunhas.getNomeTestemunha2();
-        this.cpfTestemunha2 = testemunhas.getCpfTestemunha2();
+        this.nome = testemunhas.getNome();
+        this.cpf = testemunhas.getCpf();
+    }
+
+    public static List<TestemunhaResponse> converte(List<Testemunha> testemunhas) {
+            return testemunhas.stream()
+                    .map(TestemunhaResponse::new)
+                    .collect(Collectors.toList());
     }
 }
