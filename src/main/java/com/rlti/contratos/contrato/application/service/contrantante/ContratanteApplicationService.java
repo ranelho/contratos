@@ -1,16 +1,11 @@
 package com.rlti.contratos.contrato.application.service.contrantante;
 
-import com.rlti.contratos.contrato.application.api.contratante.ContratanteAlteracaoRequest;
 import com.rlti.contratos.contrato.application.api.contratante.ContratanteRequest;
 import com.rlti.contratos.contrato.application.api.contratante.ContratanteResponse;
 import com.rlti.contratos.contrato.application.repository.ContratanteRepository;
-import com.rlti.contratos.contrato.domain.Contratada;
 import com.rlti.contratos.contrato.domain.Contratante;
-import com.rlti.contratos.contrato.infra.contratante.ContratanteSpringDataJPARepository;
-import com.rlti.contratos.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,7 +14,6 @@ import java.util.Optional;
 @Service
 @Log4j2
 public class ContratanteApplicationService implements ContratanteService {
-    private final ContratanteSpringDataJPARepository contratanteSpringDataJPARepository;
     private final ContratanteRepository contratanteRepository;
     Contratante contratante = new Contratante();
 
@@ -39,7 +33,7 @@ public class ContratanteApplicationService implements ContratanteService {
         if (!contratante.getRazaoSocialContratante().equals(request.getRazaoSocialContratante())
                 || !contratante.getNomeFantasiaContratante().equals(request.getNomeFantasiaContratante())) {
             contratante.altera(request);
-            contratanteSpringDataJPARepository.save(contratante);
+            contratanteRepository.salva(contratante);
         }
         log.info("[finaliza] ContratanteApplicationService - alteraContratante");
         return contratante;

@@ -44,4 +44,13 @@ public class Contratada {
         this.cepContratada = contratadaRequest.getCepContratada();
         this.estadoContratada = contratadaRequest.getEstadoContratada();
     }
+
+    public void altera(ContratadaRequest request) {
+        this.razaoSocialContratada = request.getRazaoSocialContratada();
+        this.nomeFantasiaContratada = request.getNomeFantasiaContratada();
+        this.enderecoContratada = request.getEnderecoContratada();
+        this.cidadeContratada = request.getCidadeContratada();
+        this.cepContratada = request.getCepContratada();
+        this.estadoContratada = request.getEstadoContratada();
+    }
 }
