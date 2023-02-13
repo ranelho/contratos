@@ -38,4 +38,8 @@ public class Testemunha {
             this.cpf = testemunhaRequest.getCpf();
         }
     }
+
+    public void altera(TestemunhaRequest testemunhaRequest) {
+        this.nome = testemunhaRequest.getNome();
+    }
 }

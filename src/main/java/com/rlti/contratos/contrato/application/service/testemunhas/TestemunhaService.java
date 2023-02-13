@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface TestemunhaService {
     Testemunha criaTestemunhas(TestemunhaRequest testemunhaRequest);
-    List<Testemunha> saveAll(List<TestemunhaRequest> testemunhas);
 }

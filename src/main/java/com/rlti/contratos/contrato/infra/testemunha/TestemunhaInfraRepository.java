@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Repository
@@ -15,7 +15,7 @@ public class TestemunhaInfraRepository implements TestemunhaRepository {
     private final TestemunhaSpringDataJPARepository testemunhaSpringDataJPARepository;
 
     @Override
-    public Testemunha criaTestemunhas(Testemunha testemunhas) {
+    public Testemunha salva(Testemunha testemunhas) {
         log.info("[inicia] TestemunhaInfraRepository - salva");
         testemunhaSpringDataJPARepository.save(testemunhas);
         log.info("[finaliza] TestemunhaInfraRepository - salva");
@@ -23,10 +23,10 @@ public class TestemunhaInfraRepository implements TestemunhaRepository {
     }
 
     @Override
-    public List<Testemunha> saveAll(List<Testemunha> list) {
-        log.info("[inicia] TestemunhaInfraRepository - saveAll");
-        testemunhaSpringDataJPARepository.saveAll(list);
-        log.info("[finaliza] TestemunhaInfraRepository - saveAll");
-        return list;
+    public Optional<Testemunha> findByCpf(String cpf) {
+        log.info("[inicia] TestemunhaInfraRepository - salva");
+        Optional<Testemunha> optionalTestemunha = testemunhaSpringDataJPARepository.findByCpf(cpf);
+        log.info("[finaliza] TestemunhaInfraRepository - salva");
+        return optionalTestemunha;
     }
 }

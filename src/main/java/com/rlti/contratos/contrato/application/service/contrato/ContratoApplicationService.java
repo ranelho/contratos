@@ -2,7 +2,6 @@ package com.rlti.contratos.contrato.application.service.contrato;
 
 import com.rlti.contratos.contrato.application.api.contrato.ContratoRequest;
 import com.rlti.contratos.contrato.application.api.contrato.ContratoResponse;
-import com.rlti.contratos.contrato.application.api.testemunha.TestemunhaRequest;
 import com.rlti.contratos.contrato.application.repository.ContratoRepository;
 import com.rlti.contratos.contrato.application.service.contrantante.ContratanteService;
 import com.rlti.contratos.contrato.application.service.contratada.ContratadaService;
@@ -15,8 +14,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @RequiredArgsConstructor
 @Service
 @Log4j2
@@ -25,11 +22,6 @@ public class ContratoApplicationService implements ContratoService {
     private final ContratanteService contratanteService;
     private final ContratadaService contratadaService;
     private final TestemunhaService testemunhaService;
-
-    // private Contratante contratante;
-    // private Contratada contratada;
-    //private final ContratadaRepository contratadaRepository;
-    //private final ContratanteRepository contratanteRepository;
 
     @Override
     public ContratoResponse postContratoSemCadastro(ContratoRequest contratoRequest) {
@@ -41,27 +33,6 @@ public class ContratoApplicationService implements ContratoService {
         Contrato contrato = contratoRepository.salva(new Contrato(contratoRequest, contratada, contratante, testemunha1, testemunha2));
         log.info("[finaliza] ContratoApplicationService - postContrato");
         return new ContratoResponse(contrato);
-
-       /*Optional<Contratada> optionalContratada = contratadaRepository.findByCnpj(contratoRequest.getContratadaRequest()
-                .getCnpjContratada());
-        if(optionalContratada.isPresent()){
-            contratada = optionalContratada.get();
-        }else{
-            contratada = new Contratada(contratoRequest.getContratadaRequest());
-            contratadaRepository.salva(contratada);
-        }
-
-        Optional<Contratante> optionalContratante = contratanteRepository.findByCnpj(contratoRequest.getContratanteRequest()
-                .getCnpjContratante());
-        if(optionalContratante.isPresent()){
-            contratante = optionalContratante.get();
-        }else{
-            contratante = new Contratante(contratoRequest.getContratanteRequest());
-            contratanteRepository.salva(contratante);
-        }
-        testemunhaRepository.salva(contrato.getTestemunhas());
-        contratoRepository.salva(contrato);
-        */
     }
 
     @Override
