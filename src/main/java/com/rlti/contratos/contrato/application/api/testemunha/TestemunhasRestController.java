@@ -12,9 +12,9 @@ public class TestemunhasRestController implements TestemunhasApi {
     private final TestemunhasService testemunhasService;
 
     @Override
-    public TestemunhaResponse postTestemunhas(TestemunhasRequest testemunhasRequest) {
+    public TestemunhasResponse postTestemunhas(TestemunhasRequest testemunhasRequest) {
         log.info("[inicia] EquipamentoRestController - postEquipamento");
-        TestemunhaResponse response = testemunhasService.criaTestemunhas(testemunhasRequest);
+        TestemunhasResponse response = testemunhasService.criaTestemunhas(testemunhasRequest);
         log.info("[finaliza] EquipamentoRestController - postEquipamento");
         return response;
     }

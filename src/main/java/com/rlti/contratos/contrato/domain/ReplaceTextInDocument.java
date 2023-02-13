@@ -35,10 +35,10 @@ public class ReplaceTextInDocument {
         document.replace("{{NOME_FANTASIA_CONTRATANTE}}", contrato.getContratanteResponse().getNomeFantasiaContratante(), false, true);
 
         document.replace("{{data_inicio_contrato}}", contrato.getDataInicioContrato().toString(), false, true);
-        document.replace("{{NOME_TESTEMUNHA1}}", contrato.getTestemunhaResponses().getNomeTestemunha1(), false, true);
-        document.replace("{{CPF_TESTEMUNHA1}}", contrato.getTestemunhaResponses().getCpfTestemunha1(), false, true);
-        document.replace("{{NOME_TESTEMUNHA2}}", contrato.getTestemunhaResponses().getNomeTestemunha2(), false, true);
-        document.replace("{{CPF_TESTEMUNHA2}}", contrato.getTestemunhaResponses().getCpfTestemunha2(), false, true);
+        document.replace("{{NOME_TESTEMUNHA1}}", contrato.getTestemunhasResponses().getNomeTestemunha1(), false, true);
+        document.replace("{{CPF_TESTEMUNHA1}}", contrato.getTestemunhasResponses().getCpfTestemunha1(), false, true);
+        document.replace("{{NOME_TESTEMUNHA2}}", contrato.getTestemunhasResponses().getNomeTestemunha2(), false, true);
+        document.replace("{{CPF_TESTEMUNHA2}}", contrato.getTestemunhasResponses().getCpfTestemunha2(), false, true);
 
         //Save the result document
         /**

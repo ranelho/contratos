@@ -10,5 +10,5 @@ import javax.validation.Valid;
 public interface TestemunhasApi {
     @PostMapping(value = "/cadastro")
     @ResponseStatus(code = HttpStatus.CREATED)
-    TestemunhaResponse postTestemunhas(@Valid @RequestBody TestemunhasRequest testemunhasRequest);
+    TestemunhasResponse postTestemunhas(@Valid @RequestBody TestemunhasRequest testemunhasRequest);
 }

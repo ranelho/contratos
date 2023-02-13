@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/contratos?useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost/contratos?createDatabaseIfNotExist=true
     username: root
     password: 852456
   jpa:
