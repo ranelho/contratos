@@ -7,8 +7,8 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/v1/testemunhas")
-public interface TestemunhasApi {
+public interface TestemunhaApi {
     @PostMapping(value = "/cadastro")
     @ResponseStatus(code = HttpStatus.CREATED)
-    TestemunhasResponse postTestemunhas(@Valid @RequestBody TestemunhasRequest testemunhasRequest);
+    TestemunhaResponse postTestemunhas(@Valid @RequestBody TestemunhaRequest testemunhaRequest);
 }
