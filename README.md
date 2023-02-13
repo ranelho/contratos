@@ -1,4 +1,4 @@
-<h2><p>Sistema de Gestão de Contratos</p></h2>
+<h2><p>API de Gestão de Contratos</p></h2>
 
 <ol>
   <li>Cadastro Contrante</li>
