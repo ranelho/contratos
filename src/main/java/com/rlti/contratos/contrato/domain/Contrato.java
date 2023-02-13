@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,14 +27,20 @@ public class Contrato {
     private Contratada contratada;
     @NotNull(message = "Data Inicio Contrato Obrigatória!")
     private LocalDate dataInicioContrato;
-    @OneToOne
-    @JoinColumn(name = "testemunhas_id")
-    private Testemunhas testemunhas;
 
-    public Contrato(ContratoRequest contratoRequest, Contratada contratada , Contratante contratante, Testemunhas testemunhas) {
+    @ManyToOne
+    @JoinColumn(name = "testemunha_1_id_testemunhas")
+    private Testemunha testemunha1 ;
+    @ManyToOne
+    @JoinColumn(name = "testemunha_2_id_testemunhas")
+    private Testemunha testemunha2 ;
+
+
+    public Contrato(ContratoRequest contratoRequest, Contratada contratada , Contratante contratante, Testemunha testemunha1, Testemunha testemunha2) {
         this.contratante = contratante;
         this.contratada = contratada;
         this.dataInicioContrato = contratoRequest.getDataInicioContrato();
-        this.testemunhas = testemunhas;
+        this.testemunha1 =  testemunha1;
+        this.testemunha2 = testemunha2;
     }
 }
