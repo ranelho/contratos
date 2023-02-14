@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @AllArgsConstructor
@@ -18,14 +19,14 @@ public class Testemunha {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTestemunhas;
+    @NotBlank(message = "Nome é obrigatório!")
     private String nome;
-    @CPF(message = "cpf inválido")
+    @CPF(message="cpf inválido")
     private String cpf;
 
-    @ManyToOne
-    @JoinColumn(name = "contrato_contrato_id")
+    @OneToMany
     @JsonIgnore
-    private Contrato contrato;
+    private List<Contrato> contratos;
 
     public Testemunha(TestemunhaRequest testemunhaRequest) {
         this.nome = testemunhaRequest.getNome();

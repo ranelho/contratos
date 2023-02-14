@@ -27,16 +27,13 @@ public class Contrato {
     private Contratada contratada;
     @NotNull(message = "Data Inicio Contrato Obrigatória!")
     private LocalDate dataInicioContrato;
-
     @ManyToOne
-    @JoinColumn(name = "testemunha_1_id_testemunhas")
     private Testemunha testemunha1 ;
     @ManyToOne
-    @JoinColumn(name = "testemunha_2_id_testemunhas")
     private Testemunha testemunha2 ;
 
-
-    public Contrato(ContratoRequest contratoRequest, Contratada contratada , Contratante contratante, Testemunha testemunha1, Testemunha testemunha2) {
+    public Contrato(ContratoRequest contratoRequest, Contratada contratada , Contratante contratante,
+                    Testemunha testemunha1, Testemunha testemunha2) {
         this.contratante = contratante;
         this.contratada = contratada;
         this.dataInicioContrato = contratoRequest.getDataInicioContrato();
