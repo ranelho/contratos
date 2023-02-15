@@ -1,6 +1,6 @@
 package com.rlti.contratos.contrato.domain.groups;
 
-import com.rlti.contratos.contrato.domain.Contratante;
+import com.rlti.contratos.contratante.domain.Contratante;
 import org.hibernate.validator.spi.group.DefaultGroupSequenceProvider;
 
 import java.util.ArrayList;

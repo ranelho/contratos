@@ -1,6 +1,6 @@
 package com.rlti.contratos.contrato.domain.groups;
 
-import com.rlti.contratos.contrato.domain.Contratada;
+import com.rlti.contratos.contratada.domain.Contratada;
 import lombok.extern.log4j.Log4j2;
 import org.hibernate.validator.spi.group.DefaultGroupSequenceProvider;
 

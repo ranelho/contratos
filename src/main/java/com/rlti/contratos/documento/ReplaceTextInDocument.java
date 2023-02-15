@@ -1,6 +1,6 @@
 package com.rlti.contratos.documento;
 
-import com.rlti.contratos.contrato.application.api.contrato.ContratoResponse;
+import com.rlti.contratos.contrato.application.api.ContratoResponse;
 import com.spire.doc.Document;
 import com.spire.doc.FileFormat;
 

@@ -1,6 +1,6 @@
 package com.rlti.contratos.contrato.application.repository.testemunhas;
 
-import com.rlti.contratos.contrato.domain.Testemunha;
+import com.rlti.contratos.testemunha.domain.Testemunha;
 
 import java.util.Optional;
 

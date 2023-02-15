@@ -1,6 +1,9 @@
 package com.rlti.contratos.contrato.domain;
 
-import com.rlti.contratos.contrato.application.api.contrato.ContratoRequest;
+import com.rlti.contratos.contratada.domain.Contratada;
+import com.rlti.contratos.contratante.domain.Contratante;
+import com.rlti.contratos.contrato.application.api.ContratoRequest;
+import com.rlti.contratos.testemunha.domain.Testemunha;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +11,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
