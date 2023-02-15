@@ -1,7 +1,7 @@
 package com.rlti.contratos.contrato.application.api.contrato;
 
 import com.rlti.contratos.contrato.application.service.contrato.ContratoService;
-import com.rlti.contratos.contrato.domain.ReplaceTextInDocument;
+import com.rlti.contratos.documento.ReplaceTextInDocument;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

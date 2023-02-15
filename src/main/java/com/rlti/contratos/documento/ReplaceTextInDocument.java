@@ -1,4 +1,4 @@
-package com.rlti.contratos.contrato.domain;
+package com.rlti.contratos.documento;
 
 import com.rlti.contratos.contrato.application.api.contrato.ContratoResponse;
 import com.spire.doc.Document;

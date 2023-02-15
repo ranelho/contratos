@@ -2,9 +2,9 @@ package com.rlti.contratos.contrato.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.contratos.contrato.application.api.contratada.ContratadaRequest;
-import com.rlti.contratos.contrato.domain.groups.CnpjGroup;
+import com.rlti.contratos.contrato.domain.groups.PessoaJuridica;
 import com.rlti.contratos.contrato.domain.groups.ContratadaGroupSequenceProvider;
-import com.rlti.contratos.contrato.domain.groups.CpfGroup;
+import com.rlti.contratos.contrato.domain.groups.PessoaFisica;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,8 +35,8 @@ public class Contratada {
     private TipoPessoa tipoPessoa;
 
     @NotBlank(message = "Cpf/Cnpj Obrigatório!")
-    @CPF(groups = CpfGroup.class)
-    @CNPJ(groups = CnpjGroup.class)
+    @CPF(groups = PessoaFisica.class)
+    @CNPJ(groups = PessoaJuridica.class)
     @Column(name =  "cpf_cnpj", unique = true, updatable = false)
     private String cpfOuCnpj;
 

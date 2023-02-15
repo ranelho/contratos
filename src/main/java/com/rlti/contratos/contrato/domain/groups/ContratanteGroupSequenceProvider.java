@@ -1,6 +1,5 @@
 package com.rlti.contratos.contrato.domain.groups;
 
-import com.rlti.contratos.contrato.domain.Contratada;
 import com.rlti.contratos.contrato.domain.Contratante;
 import org.hibernate.validator.spi.group.DefaultGroupSequenceProvider;
 
@@ -24,9 +23,9 @@ public class ContratanteGroupSequenceProvider implements DefaultGroupSequencePro
              * validação a ser aplicado ao bean.
              */
             if ("FISICA".equalsIgnoreCase(String.valueOf(entity.getTipoPessoa()))) {
-                groups.add(CpfGroup.class);
+                groups.add(PessoaFisica.class);
             } else if ("JURIDICA".equalsIgnoreCase(String.valueOf(entity.getTipoPessoa()))) {
-                groups.add(CnpjGroup.class);
+                groups.add(PessoaJuridica.class);
             }
         }
         return groups;
