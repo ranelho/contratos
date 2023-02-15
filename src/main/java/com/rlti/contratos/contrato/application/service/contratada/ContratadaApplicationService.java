@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -29,10 +28,10 @@ public class ContratadaApplicationService implements ContratadaService {
     @Override
     public Contratada alteraContratada(ContratadaRequest request) {
         log.info("[inicia] ContratadaApplicationService - alteraContratada");
-        Optional<Contratada> optionalContratada = contratadaRepository.findByCnpj(request.getCnpjContratada());
+        Optional<Contratada> optionalContratada = contratadaRepository.findByCpfOrCnpj(request.getCpfOuCnpj());
         contratada = optionalContratada.orElseGet(() -> contratadaRepository.salva(new Contratada(request)));
-        if(!contratada.getRazaoSocialContratada().equals(request.getCnpjContratada())
-                || !contratada.getNomeFantasiaContratada().equals(request.getNomeFantasiaContratada())){
+        if(!contratada.getRazaoSocialContratada().equals(request.getCpfOuCnpj())
+                || !contratada.getNome().equals(request.getNome())){
             contratada.altera(request);
             contratadaRepository.salva(contratada);
         }

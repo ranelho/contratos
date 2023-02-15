@@ -31,10 +31,10 @@ public class ContratadaInfraRepository implements ContratadaRepository {
     }
 
     @Override
-    public Optional<Contratada> findByCnpj(String cnpjContratada) {
-        log.info("[inicia] ContratadaInfraRepository - findByCnpj");
-        Optional<Contratada>  optionalContratada = contratadaSpringDataJPARepository.findByCnpjContratada(cnpjContratada);
-        log.info("[finaliza] ContratadaInfraRepository - findByCnpj");
+    public Optional<Contratada> findByCpfOrCnpj(String cpfOrCnpj) {
+        log.info("[inicia] ContratadaInfraRepository - findByCpfOrCnpj");
+        Optional<Contratada>  optionalContratada = contratadaSpringDataJPARepository.findByCpfOrCnpj(cpfOrCnpj);
+        log.info("[finaliza] ContratadaInfraRepository - findByCpfOrCnpj");
         return  optionalContratada;
     }
 }

@@ -2,9 +2,11 @@ package com.rlti.contratos.contrato.infra.contratada;
 
 import com.rlti.contratos.contrato.domain.Contratada;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
 public interface ContratadaSpringDataJPARepository extends JpaRepository<Contratada, Long> {
-    Optional<Contratada> findByCnpjContratada(String cnpjContratada);
+    @Query("SELECT c FROM Contratada c WHERE c.cpfOuCnpj = :cpfOrCnpj")
+    Optional<Contratada> findByCpfOrCnpj(String cpfOrCnpj);
 }

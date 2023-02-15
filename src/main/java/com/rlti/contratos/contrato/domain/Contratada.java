@@ -2,12 +2,18 @@ package com.rlti.contratos.contrato.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rlti.contratos.contrato.application.api.contratada.ContratadaRequest;
+import com.rlti.contratos.contrato.domain.groups.CnpjGroup;
+import com.rlti.contratos.contrato.domain.groups.ContratadaGroupSequenceProvider;
+import com.rlti.contratos.contrato.domain.groups.CpfGroup;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CNPJ;
+import org.hibernate.validator.constraints.br.CPF;
+import org.hibernate.validator.group.GroupSequenceProvider;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -15,18 +21,25 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Entity
+@GroupSequenceProvider(value = ContratadaGroupSequenceProvider.class)
 public class Contratada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idContratada;
-    @NotNull(message = "Ração Social Obrigratória!")
     private String razaoSocialContratada;
-    @NotNull(message = "Nome Fantasia Obrigatório!")
-    private String nomeFantasiaContratada;
-    @CNPJ(message = "CNPJ inválido")
-    @NotNull(message = "Cnpj Obrigatório!")
-    @Column(unique = true, updatable = false)
-    private String cnpjContratada;
+    @NotNull(message = "Nome é Obrigatório!")
+    private String nome;
+
+    @NotNull(message = "Tipo pessoa é obrigatório")
+    @Enumerated(EnumType.STRING)
+    private TipoPessoa tipoPessoa;
+
+    @NotBlank(message = "Cpf/Cnpj Obrigatório!")
+    @CPF(groups = CpfGroup.class)
+    @CNPJ(groups = CnpjGroup.class)
+    @Column(name =  "cpf_cnpj", unique = true, updatable = false)
+    private String cpfOuCnpj;
+
     private String enderecoContratada;
     private String cidadeContratada;
     private String cepContratada;
@@ -37,8 +50,9 @@ public class Contratada {
 
     public Contratada(ContratadaRequest contratadaRequest) {
         this.razaoSocialContratada = contratadaRequest.getRazaoSocialContratada();
-        this.nomeFantasiaContratada = contratadaRequest.getNomeFantasiaContratada();
-        this.cnpjContratada = contratadaRequest.getCnpjContratada();
+        this.nome = contratadaRequest.getNome();
+        this.tipoPessoa = contratadaRequest.getTipoPessoa();
+        this.cpfOuCnpj = contratadaRequest.getCpfOuCnpj();
         this.enderecoContratada = contratadaRequest.getEnderecoContratada();
         this.cidadeContratada = contratadaRequest.getCidadeContratada();
         this.cepContratada = contratadaRequest.getCepContratada();
@@ -47,7 +61,7 @@ public class Contratada {
 
     public void altera(ContratadaRequest request) {
         this.razaoSocialContratada = request.getRazaoSocialContratada();
-        this.nomeFantasiaContratada = request.getNomeFantasiaContratada();
+        this.nome = request.getNome();
         this.enderecoContratada = request.getEnderecoContratada();
         this.cidadeContratada = request.getCidadeContratada();
         this.cepContratada = request.getCepContratada();

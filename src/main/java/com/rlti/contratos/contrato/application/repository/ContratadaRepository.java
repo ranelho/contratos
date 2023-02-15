@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface ContratadaRepository {
     Contratada salva(Contratada contratada);
-    Optional<Contratada> findByCnpj(String cnpjContratada);
+    Optional<Contratada> findByCpfOrCnpj(String cnpjContratada);
 }
