@@ -28,10 +28,10 @@ public class ContratanteApplicationService implements ContratanteService {
     @Override
     public Contratante alteraContratante(ContratanteRequest request) {
         log.info("[inicia] ContratanteApplicationService - alteraContratante");
-        Optional<Contratante> optionalContratante = contratanteRepository.findByCnpj(request.getCnpjContratante());
+        Optional<Contratante> optionalContratante = contratanteRepository.findByCpfOrCnpj(request.getCpfOuCnpj());
         contratante = optionalContratante.orElseGet(() -> contratanteRepository.salva(new Contratante(request)));
         if (!contratante.getRazaoSocialContratante().equals(request.getRazaoSocialContratante())
-                || !contratante.getNomeFantasiaContratante().equals(request.getNomeFantasiaContratante())) {
+                || !contratante.getNome().equals(request.getNome())) {
             contratante.altera(request);
             contratanteRepository.salva(contratante);
         }

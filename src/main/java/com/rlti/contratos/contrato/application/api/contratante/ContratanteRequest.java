@@ -1,5 +1,6 @@
 package com.rlti.contratos.contrato.application.api.contratante;
 
+import com.rlti.contratos.contrato.domain.TipoPessoa;
 import lombok.Value;
 
 import javax.validation.constraints.NotNull;
@@ -9,9 +10,10 @@ public class ContratanteRequest {
     @NotNull(message = "Ração Social Obrigratória!")
     private String razaoSocialContratante;
     @NotNull(message = "Nome Fantasia Obrigatório!")
-    private String nomeFantasiaContratante;
+    private String nome;
+    private TipoPessoa tipoPessoa;
     @NotNull(message = "Cnpj Obrigatório!")
-    private String cnpjContratante;
+    private String cpfOuCnpj;
     private String enderecoContratante;
     private String cidadeContratante;
     private String cepContratante;
