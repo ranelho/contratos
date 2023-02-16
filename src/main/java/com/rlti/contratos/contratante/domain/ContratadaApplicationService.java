@@ -4,10 +4,16 @@ import com.rlti.contratos.contratada.application.api.ContratadaIdResponse;
 import com.rlti.contratos.contratada.application.api.ContratadaRequest;
 import com.rlti.contratos.contratada.application.repository.ContratadaRepository;
 import com.rlti.contratos.contratada.domain.Contratada;
+import com.rlti.contratos.contrato.application.api.ContratoListResponse;
+import com.rlti.contratos.contrato.application.repository.ContratoRepository;
+import com.rlti.contratos.contrato.domain.Contrato;
+import com.rlti.contratos.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -15,6 +21,7 @@ import java.util.Optional;
 @Log4j2
 public class ContratadaApplicationService implements ContratadaService {
     private final ContratadaRepository contratadaRepository;
+    private final ContratoRepository contratoRepository;
     Contratada contratada = new Contratada();
 
     @Override
@@ -37,5 +44,17 @@ public class ContratadaApplicationService implements ContratadaService {
         }
         log.info("[finaliza] ContratadaApplicationService - alteraContratada");
         return contratada;
+    }
+
+    @Override
+    public List<ContratoListResponse> allContratos(String cpfOrCnpj) {
+        log.info("[inicia] ContratadaApplicationService - allContratos");
+        Long idContratada = contratadaRepository.findByCpfOrCnpj(cpfOrCnpj).orElseThrow(
+                () -> {
+                    throw APIException.build(HttpStatus.NOT_FOUND, "Cpf/Cnpj:" +cpfOrCnpj +" não localizado");
+                }).getIdContratada();
+        List<Contrato> contratadaList = contratoRepository.allContratos(idContratada);
+        log.info("[finaliza] ContratadaApplicationService - allContratos");
+        return ContratoListResponse.converte(contratadaList);
     }
 }
