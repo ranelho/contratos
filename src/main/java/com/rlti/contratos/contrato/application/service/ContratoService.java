@@ -6,4 +6,5 @@ import com.rlti.contratos.contrato.application.api.ContratoResponse;
 public interface ContratoService {
     ContratoResponse postContratoSemCadastro(ContratoRequest contratoRequest);
     ContratoResponse getContratoById(Long idContrato);
+    void deleteContratoById(Long idContrato);
 }

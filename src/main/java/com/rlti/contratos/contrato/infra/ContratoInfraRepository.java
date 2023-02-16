@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -33,5 +34,21 @@ public class ContratoInfraRepository implements ContratoRepository {
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Contrato não encontrado!"));
         log.info("[finaliza] ContratoInfraRepository - getContratoById");
         return contrato;
+    }
+
+    @Override
+    public List<Contrato> allContratos(Long idContratada) {
+        log.info("[inicia] ContratoInfraRepository - allContratos");
+        log.info("{}", idContratada);
+        List<Contrato> contratos = contratoSpringaDataJPARespository.findAllByIdContratada(idContratada);
+        log.info("[finaliza] ContratoInfraRepository - allContratos");
+        return contratos;
+    }
+
+    @Override
+    public void deleta(Long idContrato) {
+        log.info("[inicia] ContratoInfraRepository - deleta");
+        contratoSpringaDataJPARespository.deleteById(idContrato);
+        log.info("[finaliza] ContratoInfraRepository - deleta");
     }
 }

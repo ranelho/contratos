@@ -42,4 +42,12 @@ public class ContratoApplicationService implements ContratoService {
         log.info("[finaliza] ContratoApplicationService - getContratoById");
         return new ContratoResponse(optionalContrato);
     }
+
+    @Override
+    public void deleteContratoById(Long idContrato) {
+        log.info("[inicia] ContratoApplicationService - deleteContratoById");
+        getContratoById(idContrato);
+        contratoRepository.deleta(idContrato);
+        log.info("[finzaliza] ContratoApplicationService - deleteContratoById");
+    }
 }

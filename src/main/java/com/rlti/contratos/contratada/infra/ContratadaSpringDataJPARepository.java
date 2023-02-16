@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface ContratadaSpringDataJPARepository extends JpaRepository<Contratada, Long> {
     @Query("SELECT c FROM Contratada c WHERE c.cpfOuCnpj = :cpfOrCnpj")
     Optional<Contratada> findByCpfOrCnpj(String cpfOrCnpj);
+
 }

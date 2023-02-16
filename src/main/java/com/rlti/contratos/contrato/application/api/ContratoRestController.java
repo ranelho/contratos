@@ -29,4 +29,11 @@ public class ContratoRestController implements ContratoApi {
         log.info("[finaliza] ContratoController - getContratoById");
         return contratoResponse;
     }
+
+    @Override
+    public void deleteContratoById(Long idContrato) {
+        log.info("[inicia] ContratoController - deleteContratoById");
+        contratoService.deleteContratoById(idContrato);
+        log.info("[finaliza] ContratoController - deleteContratoById");
+    }
 }
