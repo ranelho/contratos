@@ -48,6 +48,6 @@ public class ContratoApplicationService implements ContratoService {
         log.info("[inicia] ContratoApplicationService - deleteContratoById");
         getContratoById(idContrato);
         contratoRepository.deleta(idContrato);
-        log.info("[finzaliza] ContratoApplicationService - deleteContratoById");
+        log.info("[finaliza] ContratoApplicationService - deleteContratoById");
     }
 }

@@ -1,6 +1,7 @@
 package com.rlti.contratos.contratada.application.api;
 
 import com.rlti.contratos.contrato.domain.TipoPessoa;
+import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
 import javax.validation.constraints.NotNull;

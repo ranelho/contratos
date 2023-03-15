@@ -14,6 +14,7 @@ public class ContratoRequest {
     private ContratadaRequest contratadaRequest;
     @NotNull(message = "Data Inicio Contrato Obrigatória!")
     private LocalDate dataInicioContrato;
+    private int prazo;
     private TestemunhaRequest testemunha1;
     private TestemunhaRequest testemunha2;
 }

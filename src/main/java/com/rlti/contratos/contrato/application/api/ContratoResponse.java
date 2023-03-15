@@ -12,6 +12,7 @@ import java.time.LocalDate;
 public class ContratoResponse {
     private Long idContrato;
     private LocalDate dataInicioContrato;
+    private LocalDate fimContrato;
     private ContratanteResponse contratanteResponse;
     private ContratadaResponse contratadaResponse;
     private TestemunhaResponse testemunha1;
@@ -20,6 +21,7 @@ public class ContratoResponse {
     public ContratoResponse(Contrato contrato) {
         this.idContrato = contrato.getIdContrato();
         this.dataInicioContrato = contrato.getDataInicioContrato();
+        this.fimContrato = contrato.getFimContrato();
         this.contratanteResponse = new ContratanteResponse(contrato.getContratante());
         this.contratadaResponse = new ContratadaResponse(contrato.getContratada());
         this.testemunha1 = new TestemunhaResponse(contrato.getTestemunha1());

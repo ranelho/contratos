@@ -7,6 +7,7 @@ import com.rlti.contratos.testemunha.domain.Testemunha;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @Entity
 public class Contrato {
     @Id
@@ -29,6 +31,8 @@ public class Contrato {
     private Contratada contratada;
     @NotNull(message = "Data Inicio Contrato Obrigatória!")
     private LocalDate dataInicioContrato;
+    private int prazo;
+    private LocalDate fimContrato;
     @ManyToOne
     private Testemunha testemunha1 ;
     @ManyToOne
@@ -39,7 +43,15 @@ public class Contrato {
         this.contratante = contratante;
         this.contratada = contratada;
         this.dataInicioContrato = contratoRequest.getDataInicioContrato();
+        this.prazo = contratoRequest.getPrazo();
+        this.fimContrato = calculoPrazo(contratoRequest.getPrazo(), contratoRequest.getDataInicioContrato());
         this.testemunha1 =  testemunha1;
         this.testemunha2 = testemunha2;
     }
+
+    private LocalDate calculoPrazo(int prazo, LocalDate dataInicioContrato) {
+        return fimContrato = dataInicioContrato.plusMonths((prazo));
+    }
+
+
 }
