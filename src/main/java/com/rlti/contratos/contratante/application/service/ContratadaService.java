@@ -1,4 +1,4 @@
-package com.rlti.contratos.contratante.domain;
+package com.rlti.contratos.contratante.application.service;
 
 import com.rlti.contratos.contratada.application.api.ContratadaIdResponse;
 import com.rlti.contratos.contratada.application.api.ContratadaRequest;

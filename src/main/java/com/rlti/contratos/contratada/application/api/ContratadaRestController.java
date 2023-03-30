@@ -1,6 +1,6 @@
 package com.rlti.contratos.contratada.application.api;
 
-import com.rlti.contratos.contratante.domain.ContratadaService;
+import com.rlti.contratos.contratante.application.service.ContratadaService;
 import com.rlti.contratos.contrato.application.api.ContratoListResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

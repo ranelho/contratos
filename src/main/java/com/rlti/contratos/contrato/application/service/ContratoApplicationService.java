@@ -4,7 +4,7 @@ import com.rlti.contratos.contrato.application.api.ContratoRequest;
 import com.rlti.contratos.contrato.application.api.ContratoResponse;
 import com.rlti.contratos.contrato.application.repository.ContratoRepository;
 import com.rlti.contratos.contratada.application.service.ContratanteService;
-import com.rlti.contratos.contratante.domain.ContratadaService;
+import com.rlti.contratos.contratante.application.service.ContratadaService;
 import com.rlti.contratos.testemunha.application.service.TestemunhaService;
 import com.rlti.contratos.contratada.domain.Contratada;
 import com.rlti.contratos.contratante.domain.Contratante;
