@@ -11,7 +11,7 @@ public interface ContratoApi {
 
     @PostMapping(value = "/cadastro")
     @ResponseStatus(code = HttpStatus.CREATED)
-    ContratoResponse postContratoSemCadastro(@Valid @RequestBody ContratoRequest contratoRequest);
+    ContratoResponse novoContrato(@Valid @RequestBody ContratoRequest contratoRequest);
 
     @GetMapping(value = "/{idContrato}")
     @ResponseStatus(code = HttpStatus.OK)

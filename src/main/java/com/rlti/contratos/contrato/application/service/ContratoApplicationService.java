@@ -24,7 +24,7 @@ public class ContratoApplicationService implements ContratoService {
     private final TestemunhaService testemunhaService;
 
     @Override
-    public ContratoResponse postContratoSemCadastro(ContratoRequest contratoRequest) {
+    public ContratoResponse novoContrato(ContratoRequest contratoRequest) {
         log.info("[inicia] ContratoApplicationService - postContrato");
         Contratada contratada = contratadaService.alteraContratada(contratoRequest.getContratadaRequest());
         Contratante contratante = contratanteService.alteraContratante(contratoRequest.getContratanteRequest());

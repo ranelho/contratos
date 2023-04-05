@@ -13,9 +13,9 @@ public class ContratoRestController implements ContratoApi {
     private final ContratoService contratoService;
 
     @Override
-    public ContratoResponse postContratoSemCadastro(ContratoRequest contratoRequest) {
+    public ContratoResponse novoContrato(ContratoRequest contratoRequest) {
         log.info("[inicia] ContratoController - postContrato");
-        ContratoResponse contratoResponse = contratoService.postContratoSemCadastro(contratoRequest);
+        ContratoResponse contratoResponse = contratoService.novoContrato(contratoRequest);
         ReplaceTextInDocument.upadate(contratoResponse);
         log.info("[finaliza] ContratoController - postContrato");
         return contratoResponse;

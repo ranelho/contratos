@@ -37,8 +37,8 @@ public class Contratada {
     private TipoPessoa tipoPessoa;
 
     @NotBlank(message = "Cpf/Cnpj Obrigatório!")
-    @CPF(groups = PessoaFisica.class)
-    @CNPJ(groups = PessoaJuridica.class)
+    @CPF(groups = PessoaFisica.class, message = "CPF inválido!")
+    @CNPJ(groups = PessoaJuridica.class, message = "CNPJ inválido!")
     @Column(name =  "cpf_cnpj", unique = true, updatable = false)
     private String cpfOuCnpj;
 

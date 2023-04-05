@@ -2,7 +2,7 @@ package com.rlti.contratos.validacoes;
 
 import java.util.regex.Pattern;
 
-public class validaCpfouCnpj {
+public class ValidaCpfouCnpj {
 
     private static final String CPF_PATTERN = "^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$";
     private static final String CNPJ_PATTERN = "^\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}\\-\\d{2}$";

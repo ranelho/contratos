@@ -8,6 +8,7 @@ import com.rlti.contratos.contrato.application.api.ContratoListResponse;
 import com.rlti.contratos.contrato.application.repository.ContratoRepository;
 import com.rlti.contratos.contrato.domain.Contrato;
 import com.rlti.contratos.handler.APIException;
+import com.rlti.contratos.validacoes.ValidaCpfouCnpj;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
