@@ -38,4 +38,7 @@ public class ContratanteApplicationService implements ContratanteService {
         log.info("[finaliza] ContratanteApplicationService - alteraContratante");
         return contratante;
     }
+
+
+
 }

@@ -1,21 +1,22 @@
 package com.rlti.contratos.contratada.application.api;
 
 import com.rlti.contratos.contrato.domain.TipoPessoa;
-import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Value
 public class ContratadaRequest {
-    private String razaoSocialContratada;
+    String razaoSocialContratada;
     @NotNull(message = "Nome é Obrigatório!")
-    private String nome;
+    String nome;
     @NotNull(message = "Cnpj Obrigatório!")
-    private TipoPessoa tipoPessoa;
-    private String cpfOuCnpj;
-    private String enderecoContratada;
-    private String cidadeContratada;
-    private String cepContratada;
-    private String estadoContratada;
+    TipoPessoa tipoPessoa;
+    @Pattern(regexp = "^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}|\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2})$")
+    String cpfOuCnpj;
+    String enderecoContratada;
+    String cidadeContratada;
+    String cepContratada;
+    String estadoContratada;
 }

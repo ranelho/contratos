@@ -4,18 +4,20 @@ import com.rlti.contratos.contrato.domain.TipoPessoa;
 import lombok.Value;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Value
 public class ContratanteRequest {
     @NotNull(message = "Ração Social Obrigratória!")
-    private String razaoSocialContratante;
+    String razaoSocialContratante;
     @NotNull(message = "Nome Fantasia Obrigatório!")
-    private String nome;
-    private TipoPessoa tipoPessoa;
+    String nome;
+    TipoPessoa tipoPessoa;
     @NotNull(message = "Cnpj Obrigatório!")
-    private String cpfOuCnpj;
-    private String enderecoContratante;
-    private String cidadeContratante;
-    private String cepContratante;
-    private String estadoContratante;
+    @Pattern(regexp = "^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}|\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2})$")
+    String cpfOuCnpj;
+    String enderecoContratante;
+    String cidadeContratante;
+    String cepContratante;
+    String estadoContratante;
 }

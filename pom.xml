@@ -14,9 +14,8 @@
 	<name>contratos</name>
 	<description>Gestão de Contratos</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<spring-doc.version>1.6.14</spring-doc.version>
-		<poi.version>5.2.3</poi.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -31,7 +30,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
@@ -52,7 +50,6 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>${spring-doc.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>e-iceblue</groupId>
 			<artifactId>spire.doc.free</artifactId>
@@ -63,7 +60,6 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-
 
     </dependencies>
 
@@ -90,5 +86,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
