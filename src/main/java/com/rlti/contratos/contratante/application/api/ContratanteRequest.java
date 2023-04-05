@@ -3,7 +3,7 @@ package com.rlti.contratos.contratante.application.api;
 import com.rlti.contratos.contrato.domain.TipoPessoa;
 import com.rlti.contratos.contrato.domain.groups.PessoaFisica;
 import com.rlti.contratos.contrato.domain.groups.PessoaJuridica;
-import lombok.Value;
+import lombok.*;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
 

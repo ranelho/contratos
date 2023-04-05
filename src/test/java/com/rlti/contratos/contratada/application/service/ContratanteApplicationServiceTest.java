@@ -3,6 +3,7 @@ package com.rlti.contratos.contratada.application.service;
 import com.rlti.contratos.contratante.application.api.ContratanteRequest;
 import com.rlti.contratos.contratante.application.api.ContratanteResponse;
 import com.rlti.contratos.contratante.application.repository.ContratanteRepository;
+import com.rlti.contratos.contratante.application.service.ContratanteApplicationService;
 import com.rlti.contratos.contratante.domain.Contratante;
 import com.rlti.contratos.contrato.domain.TipoPessoa;
 import org.junit.jupiter.api.Test;
