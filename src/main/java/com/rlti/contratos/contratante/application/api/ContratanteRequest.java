@@ -1,6 +1,8 @@
 package com.rlti.contratos.contratante.application.api;
 
 import com.rlti.contratos.contrato.domain.TipoPessoa;
+import com.rlti.contratos.contrato.domain.groups.PessoaFisica;
+import com.rlti.contratos.contrato.domain.groups.PessoaJuridica;
 import lombok.Value;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
@@ -17,9 +19,9 @@ public class ContratanteRequest {
     TipoPessoa tipoPessoa;
     @NotNull(message = "Campo Obrigatório!")
     @Pattern(regexp = "^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}|\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2})$")
-    @CPF(message = "CPF inválido!")
-    @CNPJ(message = "CNPJ inválido!")
-    String cpfOuCnpj;
+    @CPF(groups = PessoaFisica.class, message = "CPF inválido!")
+    @CNPJ(groups = PessoaJuridica.class, message = "CNPJ inválido!")
+    String cpfCnpj;
     String enderecoContratante;
     String cidadeContratante;
     @Pattern(regexp = "^[0-9]{5}-[0-9]{3}$")

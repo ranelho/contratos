@@ -20,9 +20,9 @@ public class ContratadaRequest {
     TipoPessoa tipoPessoa;
     @Pattern(regexp = "^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}|\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2})$")
     @NotBlank(message = "Cpf/Cnpj Obrigatório!")
-    @CPF(message = "CPF inválido!")
-    @CNPJ(message = "CNPJ inválido!")
-    String cpfOuCnpj;
+    @CPF(groups = PessoaFisica.class, message = "CPF inválido!")
+    @CNPJ(groups = PessoaJuridica.class, message = "CNPJ inválido!")
+    String cpfCnpj;
     String enderecoContratada;
     String cidadeContratada;
     @Pattern(regexp = "^[0-9]{5}-[0-9]{3}$")

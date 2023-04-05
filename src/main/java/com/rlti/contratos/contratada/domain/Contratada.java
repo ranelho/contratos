@@ -40,7 +40,7 @@ public class Contratada {
     @CPF(groups = PessoaFisica.class, message = "CPF inválido!")
     @CNPJ(groups = PessoaJuridica.class, message = "CNPJ inválido!")
     @Column(name =  "cpf_cnpj", unique = true, updatable = false)
-    private String cpfOuCnpj;
+    private String cpfCnpj;
 
     private String enderecoContratada;
     private String cidadeContratada;
@@ -54,7 +54,7 @@ public class Contratada {
         this.razaoSocialContratada = contratadaRequest.getRazaoSocialContratada();
         this.nome = contratadaRequest.getNome();
         this.tipoPessoa = contratadaRequest.getTipoPessoa();
-        this.cpfOuCnpj = contratadaRequest.getCpfOuCnpj();
+        this.cpfCnpj = contratadaRequest.getCpfCnpj();
         this.enderecoContratada = contratadaRequest.getEnderecoContratada();
         this.cidadeContratada = contratadaRequest.getCidadeContratada();
         this.cepContratada = contratadaRequest.getCepContratada();

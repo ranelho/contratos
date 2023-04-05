@@ -8,7 +8,6 @@ import com.rlti.contratos.contrato.application.api.ContratoListResponse;
 import com.rlti.contratos.contrato.application.repository.ContratoRepository;
 import com.rlti.contratos.contrato.domain.Contrato;
 import com.rlti.contratos.handler.APIException;
-import com.rlti.contratos.validacoes.ValidaCpfouCnpj;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -36,9 +35,9 @@ public class ContratadaApplicationService implements ContratadaService {
     @Override
     public Contratada alteraContratada(ContratadaRequest request) {
         log.info("[inicia] ContratadaApplicationService - alteraContratada");
-        Optional<Contratada> optionalContratada = contratadaRepository.findByCpfOrCnpj(request.getCpfOuCnpj());
+        Optional<Contratada> optionalContratada = contratadaRepository.findByCpfOrCnpj(request.getCpfCnpj());
         contratada = optionalContratada.orElseGet(() -> contratadaRepository.salva(new Contratada(request)));
-        if(!contratada.getRazaoSocialContratada().equals(request.getCpfOuCnpj())
+        if(!contratada.getRazaoSocialContratada().equals(request.getCpfCnpj())
                 || !contratada.getNome().equals(request.getNome())){
             contratada.altera(request);
             contratadaRepository.salva(contratada);
@@ -52,8 +51,9 @@ public class ContratadaApplicationService implements ContratadaService {
         log.info("[inicia] ContratadaApplicationService - allContratos");
         Long idContratada = contratadaRepository.findByCpfOrCnpj(cpfOrCnpj).orElseThrow(
                 () -> {
-                    throw APIException.build(HttpStatus.NOT_FOUND, "Cpf/Cnpj:" +cpfOrCnpj +" não localizado");
-                }).getIdContratada();
+                    throw APIException.build(HttpStatus.NOT_FOUND, "Cpf/Cnpj:" + cpfOrCnpj +" não localizado");
+                })
+                .getIdContratada();
         List<Contrato> contratadaList = contratoRepository.allContratos(idContratada);
         log.info("[finaliza] ContratadaApplicationService - allContratos");
         return ContratoListResponse.converte(contratadaList);
