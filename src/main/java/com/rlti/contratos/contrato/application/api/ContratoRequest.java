@@ -3,7 +3,6 @@ package com.rlti.contratos.contrato.application.api;
 import com.rlti.contratos.contratada.application.api.ContratadaRequest;
 import com.rlti.contratos.contratante.application.api.ContratanteRequest;
 import com.rlti.contratos.testemunha.application.api.TestemunhaRequest;
-import lombok.Data;
 import lombok.Value;
 
 import javax.validation.Valid;
@@ -19,6 +18,8 @@ public class ContratoRequest {
     @NotNull(message = "Data Inicio Contrato Obrigatória!")
     LocalDate dataInicioContrato;
     int prazo;
+    @Valid
     TestemunhaRequest testemunha1;
+    @Valid
     TestemunhaRequest testemunha2;
 }
