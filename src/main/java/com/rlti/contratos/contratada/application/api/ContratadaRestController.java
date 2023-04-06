@@ -29,9 +29,7 @@ public class ContratadaRestController implements ContratadaApi {
     @Override
     public List<ContratoListResponse> allContratos(String cpfCnpj) {
         log.info("[inicia] ContratadaRestController - allContratos");
-        if(!ValidaCpfouCnpj.isCpfOrCnpjValid(cpfCnpj)){
-            throw APIException.build(HttpStatus.BAD_REQUEST, "CPF/CNPJ inválido");
-        }
+        ValidaCpfouCnpj.validateCpfOrCnpj(cpfCnpj);
         List<ContratoListResponse> listContratos = contratadaService.allContratos(cpfCnpj);
         log.info("[finaliza] ContratadaRestController - allContratos");
         return listContratos;

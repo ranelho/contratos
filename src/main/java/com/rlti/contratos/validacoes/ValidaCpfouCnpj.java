@@ -1,5 +1,8 @@
 package com.rlti.contratos.validacoes;
 
+import com.rlti.contratos.handler.APIException;
+import org.springframework.http.HttpStatus;
+
 import java.util.regex.Pattern;
 
 public class ValidaCpfouCnpj {
@@ -7,13 +10,18 @@ public class ValidaCpfouCnpj {
     private static final String CPF_PATTERN = "^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$";
     private static final String CNPJ_PATTERN = "^\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}\\-\\d{2}$";
 
-    public static boolean isCpfOrCnpjValid(String cpfOrCnpj) {
+    public static void validateCpfOrCnpj(String cpfOrCnpj) throws APIException {
         if (Pattern.matches(CPF_PATTERN, cpfOrCnpj)) {
-            return isCpfValid(cpfOrCnpj);
+            if (!isCpfValid(cpfOrCnpj)) {
+                throw APIException.build(HttpStatus.BAD_REQUEST, "CPF inválido");
+            }
         } else if (Pattern.matches(CNPJ_PATTERN, cpfOrCnpj)) {
-            return isCnpjValid(cpfOrCnpj);
+            if (!isCnpjValid(cpfOrCnpj)) {
+                throw APIException.build(HttpStatus.BAD_REQUEST, "CNPJ inválido");
+            }
+        } else {
+            throw APIException.build(HttpStatus.BAD_REQUEST, "CPF/CNPJ inválido");
         }
-        return false;
     }
 
     public static boolean isCpfValid(String cpf) {
