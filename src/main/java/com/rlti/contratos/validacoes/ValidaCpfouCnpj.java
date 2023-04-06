@@ -11,7 +11,7 @@ public class ValidaCpfouCnpj {
         if (Pattern.matches(CPF_PATTERN, cpfOrCnpj)) {
             return isCpfValid(cpfOrCnpj);
         } else if (Pattern.matches(CNPJ_PATTERN, cpfOrCnpj)) {
-            return isCpfOrCnpjValid(cpfOrCnpj);
+            return isCnpjValid(cpfOrCnpj);
         }
         return false;
     }
