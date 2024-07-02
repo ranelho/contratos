@@ -1,8 +1,9 @@
 package com.rlti.contratos.contrato.application.api;
 
 import com.rlti.contratos.contrato.application.service.ContratoService;
-import com.rlti.contratos.documento.ReplaceTextInDocument;
+import com.rlti.contratos.documento.DocxTextReplacer;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,23 +12,30 @@ import org.springframework.web.bind.annotation.RestController;
 @Log4j2
 public class ContratoRestController implements ContratoApi {
     private final ContratoService contratoService;
+    private final DocxTextReplacer docxTextReplacer;
 
+    @SneakyThrows
     @Override
-    public ContratoResponse novoContrato(ContratoRequest contratoRequest) {
+    public String novoContrato(ContratoRequest contratoRequest) {
         log.info("[inicia] ContratoController - postContrato");
         ContratoResponse contratoResponse = contratoService.novoContrato(contratoRequest);
-        ReplaceTextInDocument.upadate(contratoResponse);
+        //implementar alteração
+     //   String base64 = convert.updateDados(contratoResponse);
         log.info("[finaliza] ContratoController - postContrato");
-        return contratoResponse;
+        return null;
     }
 
+    @SneakyThrows
     @Override
-    public ContratoResponse getContratoById(Long idContrato) {
+    public String getContratoById(Long idContrato) {
         log.info("[inicia] ContratoController - getContratoById");
         ContratoResponse contratoResponse = contratoService.getContratoById(idContrato);
-        ReplaceTextInDocument.upadate(contratoResponse);
+
+        //implementar alteração
+        String base64 = docxTextReplacer.replaceText(contratoResponse);
+        //String base64 = convert.updateDados(contratoResponse);
         log.info("[finaliza] ContratoController - getContratoById");
-        return contratoResponse;
+        return base64;
     }
 
     @Override

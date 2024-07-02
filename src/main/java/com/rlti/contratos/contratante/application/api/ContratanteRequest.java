@@ -12,7 +12,7 @@ import javax.validation.constraints.Pattern;
 
 @Value
 public class ContratanteRequest {
-    @NotNull(message = "Ração Social Obrigratória!")
+    @NotNull(message = "Ração Social Obrigatória!")
     String razaoSocialContratante;
     @NotNull(message = "Nome Fantasia Obrigatório!")
     String nome;

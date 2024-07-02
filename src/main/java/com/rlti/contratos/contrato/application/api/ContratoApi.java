@@ -11,11 +11,11 @@ public interface ContratoApi {
 
     @PostMapping(value = "/cadastro")
     @ResponseStatus(code = HttpStatus.CREATED)
-    ContratoResponse novoContrato(@Valid @RequestBody ContratoRequest contratoRequest);
+    String novoContrato(@Valid @RequestBody ContratoRequest contratoRequest);
 
     @GetMapping(value = "/{idContrato}")
     @ResponseStatus(code = HttpStatus.OK)
-    ContratoResponse getContratoById(@PathVariable Long idContrato);
+    String getContratoById(@PathVariable Long idContrato);
 
     @DeleteMapping(value = "/{idContrato}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
