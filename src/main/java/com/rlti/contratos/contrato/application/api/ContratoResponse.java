@@ -10,21 +10,21 @@ import java.time.LocalDate;
 
 @Data
 public class ContratoResponse {
-    private Long idContrato;
+    private Long numeroContrato;
     private LocalDate dataInicioContrato;
     private LocalDate fimContrato;
-    private ContratanteResponse contratanteResponse;
-    private ContratadaResponse contratadaResponse;
-    private TestemunhaResponse testemunha1;
-    private TestemunhaResponse testemunha2;
+    private ContratanteResponse contratante;
+    private ContratadaResponse contratada;
+    private TestemunhaResponse t1;
+    private TestemunhaResponse t2;
 
     public ContratoResponse(Contrato contrato) {
-        this.idContrato = contrato.getIdContrato();
+        this.numeroContrato = contrato.getIdContrato();
         this.dataInicioContrato = contrato.getDataInicioContrato();
         this.fimContrato = contrato.getFimContrato();
-        this.contratanteResponse = new ContratanteResponse(contrato.getContratante());
-        this.contratadaResponse = new ContratadaResponse(contrato.getContratada());
-        this.testemunha1 = new TestemunhaResponse(contrato.getTestemunha1());
-        this.testemunha2 = new TestemunhaResponse(contrato.getTestemunha2());
+        this.contratante = new ContratanteResponse(contrato.getContratante());
+        this.contratada = new ContratadaResponse(contrato.getContratada());
+        this.t1 = new TestemunhaResponse(contrato.getTestemunha1());
+        this.t2 = new TestemunhaResponse(contrato.getTestemunha2());
     }
 }

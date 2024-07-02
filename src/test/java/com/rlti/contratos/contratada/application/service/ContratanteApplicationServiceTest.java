@@ -3,6 +3,7 @@ package com.rlti.contratos.contratada.application.service;
 import com.rlti.contratos.contratante.application.api.ContratanteRequest;
 import com.rlti.contratos.contratante.application.api.ContratanteResponse;
 import com.rlti.contratos.contratante.application.repository.ContratanteRepository;
+import com.rlti.contratos.contratante.application.service.ContratanteApplicationService;
 import com.rlti.contratos.contratante.domain.Contratante;
 import com.rlti.contratos.contrato.domain.TipoPessoa;
 import org.junit.jupiter.api.Test;
@@ -36,7 +37,7 @@ class ContratanteApplicationServiceTest {
         contratante.setCepContratante("Cep Contratante");
         contratante.setCidadeContratante("Cidade Contratante");
         contratante.setContratos(new ArrayList<>());
-        contratante.setCpfOuCnpj("Cpf Ou Cnpj");
+        contratante.setCpfCnpj("Cpf Ou Cnpj");
         contratante.setEnderecoContratante("Endereco Contratante");
         contratante.setEstadoContratante("Estado Contratante");
         contratante.setIdContratante(1L);
@@ -52,7 +53,7 @@ class ContratanteApplicationServiceTest {
         assertEquals("Nome", actualCriaContratanteResult.getNome());
         assertEquals("Estado Contratante", actualCriaContratanteResult.getEstadoContratante());
         assertEquals("Endereco Contratante", actualCriaContratanteResult.getEnderecoContratante());
-        assertEquals("Cpf Ou Cnpj", actualCriaContratanteResult.getCpfOuCnpj());
+        assertEquals("Cpf Ou Cnpj", actualCriaContratanteResult.getCpfCnpj());
         assertEquals("Cidade Contratante", actualCriaContratanteResult.getCidadeContratante());
         verify(contratanteRepository).salva((Contratante) any());
         assertSame(contratante, contratanteApplicationService.contratante);
@@ -65,7 +66,7 @@ class ContratanteApplicationServiceTest {
         request.setCepContratante("45830-300");
         request.setCidadeContratante("Cidade Contratante");
         request.setContratos(new ArrayList<>());
-        request.setCpfOuCnpj("Cpf Ou Cnpj");
+        request.setCpfCnpj("Cpf Ou Cnpj");
         request.setEnderecoContratante("Endereco Contratante");
         request.setEstadoContratante("Estado Contratante");
         request.setIdContratante(1L);
@@ -77,7 +78,7 @@ class ContratanteApplicationServiceTest {
         response.setCepContratante("Cep Contratante");
         response.setCidadeContratante("Cidade Contratante");
         response.setContratos(new ArrayList<>());
-        response.setCpfOuCnpj("Cpf Ou Cnpj");
+        response.setCpfCnpj("Cpf Ou Cnpj");
         response.setEnderecoContratante("Endereco Contratante");
         response.setEstadoContratante("Estado Contratante");
         response.setIdContratante(1L);

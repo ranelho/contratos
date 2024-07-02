@@ -23,9 +23,9 @@ public class ContratoListResponse {
         this.idContrato = contrato.getIdContrato();
         this.dataInicioContrato = contrato.getDataInicioContrato();
         this.nomeContratante = contrato.getContratante().getNome();
-        this.cpfOuCnpjContratante = contrato.getContratante().getCpfOuCnpj();
+        this.cpfOuCnpjContratante = contrato.getContratante().getCpfCnpj();
         this.nomeContratada = contrato.getContratada().getNome();
-        this.cpfOuCnpjContratada = contrato.getContratada().getCpfOuCnpj();
+        this.cpfOuCnpjContratada = contrato.getContratada().getCpfCnpj();
     }
 
     public static List<ContratoListResponse> converte(List<Contrato> contratadaList) {

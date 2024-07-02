@@ -7,7 +7,7 @@ import lombok.Value;
 public class ContratanteResponse {
     private String razaoSocialContratante;
     private String nome;
-    private String cpfOuCnpj;
+    private String cpfCnpj;
     private String enderecoContratante;
     private String cidadeContratante;
     private String cepContratante;
@@ -16,7 +16,7 @@ public class ContratanteResponse {
     public ContratanteResponse(Contratante contratante) {
         this.razaoSocialContratante = contratante.getRazaoSocialContratante();
         this.nome = contratante.getNome();
-        this.cpfOuCnpj = contratante.getCpfOuCnpj();
+        this.cpfCnpj = contratante.getCpfCnpj();
         this.enderecoContratante = contratante.getEnderecoContratante();
         this.cidadeContratante = contratante.getCidadeContratante();
         this.cepContratante = contratante.getCepContratante();

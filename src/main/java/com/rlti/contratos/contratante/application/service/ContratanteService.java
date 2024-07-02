@@ -1,4 +1,4 @@
-package com.rlti.contratos.contratada.application.service;
+package com.rlti.contratos.contratante.application.service;
 
 import com.rlti.contratos.contratante.application.api.ContratanteRequest;
 import com.rlti.contratos.contratante.application.api.ContratanteResponse;

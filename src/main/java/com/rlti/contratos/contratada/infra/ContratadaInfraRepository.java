@@ -2,8 +2,6 @@ package com.rlti.contratos.contratada.infra;
 
 import com.rlti.contratos.contratada.application.repository.ContratadaRepository;
 import com.rlti.contratos.contratada.domain.Contratada;
-import com.rlti.contratos.contrato.domain.Contrato;
-import com.rlti.contratos.contrato.infra.ContratoSpringDataJPARepository;
 import com.rlti.contratos.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -11,7 +9,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -36,7 +33,7 @@ public class ContratadaInfraRepository implements ContratadaRepository {
     @Override
     public Optional<Contratada> findByCpfOrCnpj(String cpfOrCnpj) {
         log.info("[inicia] ContratadaInfraRepository - findByCpfOrCnpj");
-        Optional<Contratada>  optionalContratada = contratadaSpringDataJPARepository.findByCpfOrCnpj(cpfOrCnpj);
+        Optional<Contratada>  optionalContratada = contratadaSpringDataJPARepository.findByCpfCnpj(cpfOrCnpj);
         log.info("[finaliza] ContratadaInfraRepository - findByCpfOrCnpj");
         return  optionalContratada;
     }

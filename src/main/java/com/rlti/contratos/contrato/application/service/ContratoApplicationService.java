@@ -3,8 +3,8 @@ package com.rlti.contratos.contrato.application.service;
 import com.rlti.contratos.contrato.application.api.ContratoRequest;
 import com.rlti.contratos.contrato.application.api.ContratoResponse;
 import com.rlti.contratos.contrato.application.repository.ContratoRepository;
-import com.rlti.contratos.contratada.application.service.ContratanteService;
-import com.rlti.contratos.contratante.application.service.ContratadaService;
+import com.rlti.contratos.contratante.application.service.ContratanteService;
+import com.rlti.contratos.contratada.application.service.ContratadaService;
 import com.rlti.contratos.testemunha.application.service.TestemunhaService;
 import com.rlti.contratos.contratada.domain.Contratada;
 import com.rlti.contratos.contratante.domain.Contratante;
@@ -24,7 +24,7 @@ public class ContratoApplicationService implements ContratoService {
     private final TestemunhaService testemunhaService;
 
     @Override
-    public ContratoResponse postContratoSemCadastro(ContratoRequest contratoRequest) {
+    public ContratoResponse novoContrato(ContratoRequest contratoRequest) {
         log.info("[inicia] ContratoApplicationService - postContrato");
         Contratada contratada = contratadaService.alteraContratada(contratoRequest.getContratadaRequest());
         Contratante contratante = contratanteService.alteraContratante(contratoRequest.getContratanteRequest());

@@ -1,21 +1,24 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
 server:
   servlet:
     context-path: /contratos/api
+    multipart:
+      enabled: true
+      max-file-size: 1MB
+      max-request-size: 1MB
+      file-size-threshold: 0
+      location: ~/temp/
 
-spring:
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/contratos?createDatabaseIfNotExist=true
-    username: root
-    password: 852456
-  jpa:
-    generate-ddl: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # 24 HORAS
+      refresh-token:
+        expiration: 86400000 # 24 HORAS
 
 springdoc:
   swagger-ui:
     path: /public/swagger
-
-

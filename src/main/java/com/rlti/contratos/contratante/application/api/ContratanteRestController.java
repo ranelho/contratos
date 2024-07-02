@@ -1,6 +1,6 @@
 package com.rlti.contratos.contratante.application.api;
 
-import com.rlti.contratos.contratada.application.service.ContratanteService;
+import com.rlti.contratos.contratante.application.service.ContratanteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.rlti.contratos.contratada.application.service;
+package com.rlti.contratos.contratante.application.service;
 
 import com.rlti.contratos.contratante.application.api.ContratanteRequest;
 import com.rlti.contratos.contratante.application.api.ContratanteResponse;
@@ -28,7 +28,7 @@ public class ContratanteApplicationService implements ContratanteService {
     @Override
     public Contratante alteraContratante(ContratanteRequest request) {
         log.info("[inicia] ContratanteApplicationService - alteraContratante");
-        Optional<Contratante> optionalContratante = contratanteRepository.findByCpfOrCnpj(request.getCpfOuCnpj());
+        Optional<Contratante> optionalContratante = contratanteRepository.findByCpfOrCnpj(request.getCpfCnpj());
         contratante = optionalContratante.orElseGet(() -> contratanteRepository.salva(new Contratante(request)));
         if (!contratante.getRazaoSocialContratante().equals(request.getRazaoSocialContratante())
                 || !contratante.getNome().equals(request.getNome())) {
@@ -38,7 +38,4 @@ public class ContratanteApplicationService implements ContratanteService {
         log.info("[finaliza] ContratanteApplicationService - alteraContratante");
         return contratante;
     }
-
-
-
 }

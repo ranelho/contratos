@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: ${DB_HOST_PROD}
+    username: ${DB_USERNAME_PROD}
+    password: ${DB_PASSWORD_PROD}
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        ddl-auto: update
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+emailClient:
+  url: ${HOST_EMAIL}
+scheduled:
+  birthdayCheck:
+    enabled: ${ENABLE_BIRTHDAY_CHECK:false}
+    cronExpression: ${CRON_BIRTHDAY_CHECK:0 8 * * * *}
+config:
+  cnpj: ${CNPJ:81436017000198}

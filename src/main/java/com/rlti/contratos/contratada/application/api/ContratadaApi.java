@@ -14,7 +14,7 @@ public interface ContratadaApi {
     @ResponseStatus(code = HttpStatus.CREATED)
     ContratadaIdResponse postContratada(@Valid @RequestBody ContratadaRequest contratadaRequest);
 
-    @GetMapping("/all-contratos/{cpfOrCnpj}")
+    @GetMapping("/all-contratos/cpfCnpj")
     @ResponseStatus(code = HttpStatus.OK)
-    List<ContratoListResponse> allContratos(@PathVariable String cpfOrCnpj);
+    List<ContratoListResponse> allContratos(@RequestParam String cpfCnpj);
 }
